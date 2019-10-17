@@ -1,0 +1,12 @@
+<app-backdrop [show]="service.showModal"></app-backdrop>
+
+<div class="form-auth-modal position-fixed fixed-center rounded" [ngClass]="{'show': service.showModal}">
+
+    <div class="close-action text-right t-3 color-primary hover" (click)="closeModal()">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </div> 
+
+    <header class="title">M.</header>
+     
+    <app-login></app-login>
+</div>

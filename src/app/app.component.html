@@ -1,0 +1,15 @@
+<app-aside></app-aside>
+<app-login-modal></app-login-modal>
+
+<main [ngClass]="{'slide-right': aside.show}">
+    <app-header></app-header>
+    <section class="content">
+        <section class="custom-nav">
+            <app-navigation-tab-header></app-navigation-tab-header>
+            <section class="nav-content" style="padding-top: .5rem;">
+                <router-outlet></router-outlet>
+            </section>
+        </section>
+    </section>
+</main>
+<app-footer></app-footer>

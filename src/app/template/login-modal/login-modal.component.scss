@@ -1,0 +1,27 @@
+@import '../../../constant.scss';
+
+.form-auth-modal.show{
+    display: block;
+}
+
+.form-auth-modal{
+    background: white;
+    z-index: 3;
+    padding: 1.5rem;
+    display: none;
+    width: 500px;
+}
+
+.title {
+    text-align: center;
+    font-size: 4.5rem;
+    font-family: "fnbasic";
+    user-select: none;
+    color: $colorPrimary;
+}
+@media screen and (max-width: $mobilePx){
+    .form-auth-modal{
+        width: calc(100% - 100px);
+    }
+}
+

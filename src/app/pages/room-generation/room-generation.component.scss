@@ -1,0 +1,40 @@
+@import '../../../constant.scss';
+
+@mixin random-bgr($base-color, $offset , $spectrum , $num-colors , $i) {
+  background: adjust-hue($base-color, $offset + $spectrum / $num-colors * $i);
+}
+
+.room-generation {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+
+  .generation {
+    height: 200px;
+    font-weight: bold;
+
+    $num-colors: 10;
+    $base-color: $colorPrimaryDark;
+    $spectrum: 360deg;
+    $offset: 50deg;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+
+    &:hover{
+      cursor: pointer;
+    }
+    @for $i from 0 to $num-colors {
+      &:nth-child(#{$i}) {
+        @include random-bgr($base-color, $offset, $spectrum, $num-colors, $i);
+      }
+    }
+  }
+}
+@media screen and (max-width : $mobilePx){
+  .room-generation{
+    grid-template-columns: 1fr;
+  }
+}

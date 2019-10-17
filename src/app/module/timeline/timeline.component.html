@@ -1,0 +1,19 @@
+<button type="button" class="btn btn-primary" *ngIf="timelines && timelines.length > 0" (click)="back()">
+  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+  Back</button>
+
+<div class="timeline" *ngFor="let timeline of timelines">
+  <ng-container *ngIf="timeline.content.length > 0">
+    <div class="timeline-time">
+      <div class="time">{{timeline.date}}</div>
+    </div>
+    <div class="timeline-row" *ngFor="let content of timeline.content">
+      <div class="col-6 timeline-content">
+        <div class="content">
+          {{content}}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

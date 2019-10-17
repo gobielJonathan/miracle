@@ -1,0 +1,35 @@
+<div class="col-12 text-center mb-2">
+    <div class="btn-group color-primary">
+        <div class="btn bg-primary text-white hover" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+            (viewDateChange)="closeOpenMonthViewDay()">
+            <i class="fa fa-caret-left" aria-hidden="true"></i>
+        </div>
+        <h3 class="calender-title">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+        <div class="btn bg-primary text-white hover" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+            (viewDateChange)="closeOpenMonthViewDay()">
+            <i class="fa fa-caret-right" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 mb-2">
+    <div class="btn-group">
+        <div class="btn btn-primary" (click)="setView(CalendarView.Month)"
+            [ngClass]="{'active': view === CalendarView.Month}">
+            Month
+        </div>
+        <div class="btn btn-primary" (click)="setView(CalendarView.Week)"
+            [ngClass]="{'active': view === CalendarView.Week}">
+            Week
+        </div>
+    </div>
+</div>
+<div [ngSwitch]="view">
+    <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
+        [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+        (eventClicked)="handleEvent('Clicked', $event.event)">
+    </mwl-calendar-month-view>
+    <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events"
+        [refresh]="refresh">
+    </mwl-calendar-week-view>
+</div>

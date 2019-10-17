@@ -1,0 +1,23 @@
+<div class="form-group">
+    <input type="text" class="form-control" #searchField  name="" id="" placeholder="Search Course Outline">
+</div>
+
+<ng-container *ngIf="courseOutlines$ | async as courseOutlines; else loading">
+    
+    <div class="course-outline my-3" *ngFor="let course of courseOutlines | courseOutline:searchField.value">
+
+        <div class="course">
+            <div class="course-detail">
+                {{course.Name}}
+            </div>
+
+            <button (click)="seeDetail(course)" type="button" class="btn btn-primary ml-auto btn-course-detail">
+                <i class="fa fa-caret-right" aria-hidden="true"></i>
+            </button> 
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #loading>
+    <app-course-outline-placeholder></app-course-outline-placeholder>
+</ng-template>

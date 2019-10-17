@@ -1,0 +1,45 @@
+<aside class="position-fixed" [ngClass]="{'show': aside.show}">
+    <div class="position-relative h-100">
+
+        <div class="aside-items" *ngFor="let menu of menus">
+
+            <a class="d-flex color-primary">
+                <span class="text-capitalize">{{menu.name}}</span>
+                <i class="fa fa-chevron-down" aria-hidden="true" *ngIf="menu.submenus.length"></i>
+            </a>
+
+            <ng-container *ngIf="menu.submenus.length">
+                <div class="sub-menu" *ngFor="let submenu of menu.submenus">
+                    <div class="aside-items">
+                        <a [routerLink]="menu.path+submenu.path" routerLinkActive="active"
+                            class="text-capitalize d-flex">
+                            {{submenu.name}}
+                        </a>
+                    </div>
+                </div>
+            </ng-container> 
+
+        </div>
+ 
+        <ng-container *ngIf="auth.token; else notAuth">
+            <div class="aside-items">
+                <a class="d-flex hover" (click)="logout()">
+                    <span class="color-primary text-capitalize">Logout</span>
+                </a>
+            </div>
+        </ng-container>
+
+        <ng-template #notAuth>
+            <div class="aside-items">
+                <a class="d-flex hover" (click)="toggleAuthModal()">
+                    <span class="color-primary text-capitalize">Login</span>
+                </a>
+            </div>
+        </ng-template>
+
+
+        <div [ngClass]="{'show': aside.show}" class="close-aside justify-content-center" (click)="aside.toggle()">
+            <i class="fa fa-chevron-right color-primary hover align-self-center" aria-hidden="true"></i>
+        </div>
+    </div>
+</aside>

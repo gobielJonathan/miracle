@@ -1,0 +1,40 @@
+<header class="m-container d-flex flex-column">
+  <div class="sub-header w-100 d-flex">
+    <div class="burger hover" [ngClass]="{'active': aside.show}" (click)="onToggleNavSide()">
+      <div></div>
+    </div>
+
+    <div class="ml-auto d-flex">
+      <div class="dropdown">
+        <button class="btn mr-1 dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" style="color: #757b8b">
+          {{semesterActive ? semesterActive.Description : '-'}}
+        </button>
+
+        <div class="dropdown-menu" aria-labelledby="triggerId" style="height: 200px;overflow-y: auto;">
+          <!-- semester list -->
+          <ng-container *ngIf="semesters; else loading">
+            <a class="dropdown-item" (click)="changeSemesterActive(semester)"
+              *ngFor="let semester of semesters">{{semester.Description}}</a>
+          </ng-container>
+
+          <ng-template #loading>
+            loading...
+          </ng-template>
+
+        </div>
+      </div>
+
+      <div class="form-search position-relative">
+        <input type="text" name="" id="" placeholder="Search" (focus)="onToggleSuggestion()" (blur)="onToggleSuggestion()" #searchField class="form-search-input">
+        <button type="submit" class="btn bg-transparent"><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="suggestion position-absolute">
+          <a href="#" class="suggestion-items" *ngFor="let menu of menus | menu:searchField.value">{{menu.name}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="align-self-center t-4 font-weight-bold" routerLink="announcement" style="margin: 0 auto;">Test.</a>
+
+</header>

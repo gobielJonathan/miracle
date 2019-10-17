@@ -1,0 +1,87 @@
+@import '../../../constant.scss';
+
+.timeline-time {
+  display: flex;
+  justify-content: center;
+
+  .time {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba($color: $colorPrimary, $alpha: .9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: white;
+  }
+}
+
+.timeline-row {
+
+  &:nth-child(2n + 1) {
+    .timeline-content {
+      border-left: 2px solid $colorPrimary;
+      margin-left: auto;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-color: #007bff;
+        top: calc(100% / 2);
+        left: calc(-18px / 2);
+        border-radius: 50%;
+      }
+
+    }
+  }
+
+  &:nth-child(2n) {
+    .timeline-content {
+      border-right: 2px solid $colorPrimary;
+      margin-left: 2px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-color: #007bff;
+        top: calc(100% / 2);
+        right: calc(-18px / 2);
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.timeline-content {
+  height: auto;
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  .content {
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: $colorPrimary;
+    color: white;
+  }
+
+
+  &:nth-child(2n) {
+    .content {
+      text-align: right;
+    }
+  }
+
+
+  &:nth-child(2n + 1) {
+    .content {
+      text-align: left;
+    }
+  }
+
+}

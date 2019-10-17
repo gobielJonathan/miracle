@@ -1,0 +1,46 @@
+@import '../../../constant.scss';
+
+
+.form-section {
+    position: relative;
+}
+
+.form-section label {
+    color: rgba(19, 20, 49, .4);
+    font-size: 1.5rem;
+    transition: all .2s ease-in-out;
+    position: absolute;
+    top: calc(35px / 2);
+    left: 20px;
+    pointer-events: none;
+}
+
+.form-section-input:valid+label {
+    font-size: 1rem;
+}
+
+.form-section-input:focus+label {
+    font-size: 1rem;
+}
+
+.form-section-input {
+    border: 0;
+    padding: 35px 20px 15px;
+    color: rgba(19, 20, 49, .4);
+}
+
+.form-section-input:focus {
+    outline: 0 !important;
+}
+
+.form-section:not(:last-child) {
+    border-bottom: 1px solid rgba(19, 20, 49, .1);
+}
+
+.form-submit {
+    padding: 5px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+

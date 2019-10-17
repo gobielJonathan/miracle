@@ -1,0 +1,24 @@
+@import '../../../../constant.scss';
+
+.nav-header {
+     overflow-x: auto;
+     white-space: nowrap;
+     padding-bottom: 4px;
+ }
+
+ .nav-header .nav-tab {
+     padding: .5rem .8rem;
+     font-weight: bold;
+     color: $colorPrimary;
+ }
+
+ .nav-header .title {
+     background-color: rgb(0, 123, 255);
+     position: sticky;
+     left: 0;
+     border-bottom-right-radius: 20px;
+ }
+
+ .nav-tab.active {
+     border-bottom: 2px solid $colorPrimary;
+ }

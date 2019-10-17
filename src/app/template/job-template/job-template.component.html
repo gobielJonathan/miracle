@@ -1,0 +1,23 @@
+<ng-container *ngIf="_jobs && _jobs.length > 0; else jobnotexists">
+    <div class="job">
+        <article class="job-items" *ngFor="let job of _jobs">
+            <header>
+                <span class="badge badge-pill text-white"
+                 [ngClass]="{'badge-info': job.Status === Done, 'badge-warning' : job.Status == 'Not Done', 'badge-danger' : job.Status == 'Done'}">{{job.Status}}</span>
+                <span class="ml-1 badge badge-pill badge-info">{{job.Date}}</span>
+                <div class="text-wrap job-title">
+                    {{job.Description}}
+                </div>
+            </header>
+            <div class="job-desc">
+                <div class="job-time">
+                    <b>{{job.StartDate}} - {{job.EndDate}}</b>
+                </div>
+            </div>
+        </article>
+    </div>
+</ng-container>
+
+<ng-template #jobnotexists>
+    <app-empty></app-empty>
+</ng-template>

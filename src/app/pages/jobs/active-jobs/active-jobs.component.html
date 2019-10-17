@@ -1,0 +1,7 @@
+<ng-container *ngIf="jobs$ | async as jobs; else loading">
+    <app-job-template [jobs]="jobs"></app-job-template>
+</ng-container>
+<ng-template #loading>
+    <app-loading></app-loading>
+
+</ng-template>

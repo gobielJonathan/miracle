@@ -1,0 +1,52 @@
+{
+    "job": {
+        "name": "Job",
+        "path": "job",
+        "submenus": [
+            {
+                "path": "/active-job",
+                "name": "Active"
+            },
+            {
+                "path": "/future-job",
+                "name": "Future"
+            },
+            {
+                "path": "/history-job",
+                "name": "History"
+            }
+        ]
+    },
+    "miscellaneous" : {
+        "name": "miscellaneous",
+        "path": "miscellaneous",
+        "submenus": [
+            {
+                "path": "/questionnaire-result",
+                "name": "Questionnaire Result"
+            },
+            {
+                "path": "/room-transaction",
+                "name": "Room Transaction"
+            },
+            {
+                "path": "/course-outline",
+                "name": "Course Outline"
+            },
+            {
+              "path": "/room-generation",
+              "name": "Room Generation"
+          }
+        ]
+    },
+    "binusmaya" : {
+        "name": "binusmaya",
+        "path": "binusmaya",
+        "submenus": [
+            {
+                "path": "/class-schedule",
+                "name": "Class Schedule"
+            }
+        ]
+    }
+}

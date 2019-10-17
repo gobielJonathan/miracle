@@ -1,0 +1,16 @@
+  <div class="rooms" *ngIf="roomTransaction$ | async as roomTransaction; else loading">
+
+    <ng-container *ngFor="let room of roomTransaction.Details">
+      <div class="room d-flex flex-column align-items-center" (click)="seeDetail(room.StatusDetails)">
+        <div
+          class="room-thumbnail rounded-circle d-flex justify-content-center align-items-center font-weight-bold mb-2">
+          {{room.RoomName}}</div>
+        <div class="room-description">{{room.Campus}}</div>
+      </div>
+    </ng-container>
+
+  </div>
+
+  <ng-template #loading>
+    <app-room-transaction-placeholder></app-room-transaction-placeholder>
+  </ng-template>

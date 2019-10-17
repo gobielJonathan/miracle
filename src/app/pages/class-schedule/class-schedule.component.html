@@ -1,0 +1,6 @@
+<ng-container *ngIf="loading; else loaded">
+  <app-loading></app-loading>
+</ng-container>
+<ng-template #loaded>
+  <app-calender [events]="schedules"></app-calender>
+</ng-template>

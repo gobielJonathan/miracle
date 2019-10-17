@@ -1,0 +1,14 @@
+<div class="nav-header d-flex">
+    <div class="nav-tab title">
+        <div class="text-white text-capitalize">{{title}}</div>
+    </div>
+
+    <ng-container *ngIf="menu">
+        <ng-container *ngFor="let submenu of menu.submenus">
+            <a [routerLink]="menu.path+submenu.path" class="nav-tab text-capitalize"
+                routerLinkActive="active">{{submenu.name}}</a>
+        </ng-container>
+    </ng-container>
+
+
+</div>
